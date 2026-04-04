@@ -6,7 +6,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 20px;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .header-box {
@@ -19,6 +19,7 @@ body {
   margin: 0 auto;
   border: 4px solid;
   animation: rainbowBorder 3s linear infinite;
+  margin-bottom: 30px;
 }
 
 @keyframes rainbowBorder {
@@ -55,40 +56,37 @@ body {
 
 .about-panel {
   position: fixed;
-  top: 50%;                        /* centers vertically */
-  transform: translateY(-50%);     /* perfect vertical centering */
-  right: -400px;                   /* hidden off screen */
-  width: 280px;                    /* smaller width */
-  max-height: 70vh;                /* shorter, not full height */
+  top: 50%;                       
+  transform: translateY(-50%);    
+  right: -400px;                
+  width: 280px;                
+  max-height: 70vh;               
   background-color: rgba(50, 50, 50, 0.95);
   color: white;
   padding: 20px;
   border: 4px solid gold; 
-  border-radius: 15px;             /* rounded edges like the main box */
+  border-radius: 15px;             
   transition: right 0.5s ease;
   overflow-y: auto;
-  margin-right: 20px;              /* moves it away from the edge */
+  margin-right: 20px;              
 }
 
 .about-panel.open {
-  right: 20px;                     /* stops 20px from the right edge */
+  right: 20px;                    
 }
 
 .chatbox {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 600px;
-  height: 500px;
+  height: 550px;
   background-color: rgba(50, 50, 50, 0.95);
   border-radius: 15px;
-  border: 4px solid grey; 
+  border: 4px solid grey;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin: 100px auto 60px auto; 
 }
-
 
 .chat-messages {
   flex: 1;
@@ -107,7 +105,7 @@ body {
   font-size: 14px;
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.4s ease, transform 0.4s ease;  /* changed from animation to transition */
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 @keyframes slideInMsg {
@@ -184,16 +182,14 @@ body {
 }
 
 .slogan {
-  position: fixed;
-  bottom: 560px;                        /* sits above the chatbox */
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Brush Script MT', cursive; /* cursive font */
+  text-align: center;
+  font-family: 'Brush Script MT', cursive;
   font-size: 32px;
   color: white;
-  text-shadow: 0 0 10px rgba(255,255,255,0.5); /* soft glow effect */
-  white-space: nowrap;                  /* keeps it on one line */
-  pointer-events: none;                 /* can't accidentally click it */
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  white-space: nowrap;
+  pointer-events: none;
+  margin: 15px 0 0 0;
 }
 
 .download-buttons {
@@ -225,13 +221,13 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin: 0 0 5px 0;
-  letter-spacing: 2px;  /* spreads the letters out a bit */
+  letter-spacing: 2px;  
 }
 
 .downloads-panel {
   position: fixed;
   top: 50%;
-  left: -400px;                        /* hidden off screen to the left */
+  left: -400px;                  
   transform: translateY(-50%);
   width: 280px;
   max-height: 70vh;
@@ -240,7 +236,7 @@ body {
   padding: 20px;
   border: 4px solid grey;
   border-radius: 15px;
-  transition: left 0.5s ease;          /* slides in from the left */
+  transition: left 0.5s ease;       
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -248,18 +244,45 @@ body {
 }
 
 .downloads-panel.open {
-  left: 20px;                          /* slides into view from the left */
+  left: 20px;                          
 }
 
 .subslogan {
-  position: fixed;
-  bottom: 530px;                         /* just below the slogan */
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: center;
   font-family: 'Brush Script MT', cursive;
-  font-size: 20px;                       /* smaller than the main slogan */
+  font-size: 20px;
   color: white;
   text-shadow: 0 0 10px rgba(255,255,255,0.5);
   white-space: nowrap;
   pointer-events: none;
+  margin: 5px 0 15px 0;
+}
+
+.info-boxes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 80px auto 40px auto; 
+  max-width: 900px;
+}
+
+.info-box {
+  background-color: rgba(50, 50, 50, 0.85);
+  border: 3px solid grey;
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  flex: 1;
+  max-height: 300px;
+  animation: rainbowBorder 3s linear infinite;
+}
+
+.info-box h2 {
+  margin-top: 0;
+  font-size: 19px;
+}
+
+.info-box p {
+  line-height: 1.8;
+  margin: 0;
 }
