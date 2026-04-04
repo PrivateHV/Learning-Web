@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Forum</title>
+  </head>
+
+  <body>
+    <div class="header-box">
+      <h1>Welcome to The Metro Forums</h1>
+      <p>Coding archive and forum</p>
+
+      <div class="buttons">
+        <button class="nav-button" onclick="toggleDownloads()">Downloads</button>
+        <button class="nav-button" onclick="window.open('https://github.com/PrivateHV', '_blank')">Projects</button>
+        <button class="nav-button" onclick="window.open('https://www.youtube.com/@zoned3455', '_blank')">YouTube</button>
+        <button class="nav-button" onclick="toggleAbout()">About Me</button>
+      </div>
+    </div>
+
+      <p class="slogan">Discuss. Debug. Deploy.</p>
+      <p class="subslogan">Metro Forums forever 🔥</p>
+
+      <div class="chatbox">
+  <div class="chat-messages" id="chatMessages"></div>
+
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+      </div>
+
+    <div class="about-panel" id="aboutPanel">
+      <h2>Marcus Reid — Full Stack Developer</h2>
+      <p>Hey! I'm Marcus, a 28 year old software developer based in Portland, Oregon. I've been passionate about building things on the web since I was a teenager.</p>
+
+      <h3>Education</h3>
+      <p>Computer Science at Oregon State University, graduating in 2019 with a Bachelor's degree, focused on software engineering and web development.</p>
+
+      <h3>Experience</h3>
+      <p>After graduating I joined a startup called Loopline as a junior developer. In 2021 I moved to a mid-sized fintech company called Vantara, where I work today as a full stack developer.</p>
+
+      <h3>Skills</h3>
+      <p>JavaScript, TypeScript, React, Node.js, Python, SQL, Git, Docker</p>
+
+      <h3>What I'm working on</h3>
+      <p>I run a small coding archive and forum where I share projects, tutorials, and thoughts on software development. I also post videos on YouTube for beginners.</p>
+    </div>
+
+    <div class="downloads-panel" id="downloadsPanel">
+      <h2>Downloads</h2>
+      <a href="downloads/1.py" target="_blank"><button class="download-btn">Download: All in one tool</button></a>
+      <a href="downloads/2.py" target="_blank"><button class="download-btn">Download: DDOS tool</button></a>
+      <a href="downloads/3.py" target="_blank"><button class="download-btn">Download: Packet sniffer</button></a>
+      <a href="downloads/4.py" target="_blank"><button class="download-btn">Download: Port scanner</button></a>
+      <a href="downloads/5.py" target="_blank"><button class="download-btn">Download: Cookie grabber</button></a>
+      <a href="downloads/6.py" target="_blank"><button class="download-btn">Download: ILOVEYOU</button></a>
+      <a href="downloads/7.py" target="_blank"><button class="download-btn">Download: Wanna Cry</button></a>
+      <a href="downloads/8.py" target="_blank"><button class="download-btn">Download: Zeus</button></a>
+      <a href="downloads/9.py" target="_blank"><button class="download-btn">Download: Emotet</button></a>
+      <a href="downloads/10.py" target="_blank"><button class="download-btn">Download: Klez</button></a>
+    </div>
+
+    <script src="messages.js"></script>
+<script src="messages.js"></script>
+<script>
+  function toggleAbout() {
+    document.getElementById('aboutPanel').classList.toggle('open');
+  }
+
+  function toggleDownloads() {
+    document.getElementById('downloadsPanel').classList.toggle('open');
+  }
+
+  function sendMessage() {
+    const chat = document.getElementById('chatMessages');
+    const input = document.getElementById('chatInput');
+    if (input.value.trim() === '') return;
+    const msg = document.createElement('div');
+    msg.classList.add('message');
+    msg.style.opacity = '1';
+    msg.style.transform = 'translateX(0)';
+    msg.innerHTML = '<span class="username user3">You:</span> ' + input.value;
+    chat.appendChild(msg);
+    chat.scrollTop = chat.scrollHeight;
+    input.value = '';
+  }
+
+  document.getElementById('chatInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  window.onload = function() {
+    const chat = document.getElementById('chatMessages');
+    let userScrolled = false;
+    let index = 0;
+
+    chat.addEventListener('scroll', function() {
+      const distanceFromBottom = chat.scrollHeight - chat.scrollTop - chat.clientHeight;
+      userScrolled = distanceFromBottom > 50;
+    });
+
+    function showNextMessage() {
+      if (index < messagesData.length) {
+        const data = messagesData[index];
+        const msg = document.createElement('div');
+        msg.classList.add('message');
+        msg.style.opacity = '0';
+        msg.style.transform = 'translateX(-30px)';
+        msg.innerHTML = `<span class="username ${data.user}">${data.name}:</span> ${data.text}`;
+        chat.appendChild(msg);
+
+        // force reflow so transition triggers
+        msg.getBoundingClientRect();
+
+        msg.style.opacity = '1';
+        msg.style.transform = 'translateX(0)';
+
+        if (!userScrolled) chat.scrollTop = chat.scrollHeight;
+
+        index++;
+        const delay = Math.random() * 1000 + 2000;
+        setTimeout(showNextMessage, delay);
+      }
+    }
+
+    showNextMessage();
+  }
+</script>
+
+<div class="info-boxes">
+  <div class="info-box">
+    <h2>🎯 Goals</h2>
+    <p>My upcomming goals are to finish the website and be fully educated in the basics of JS, HTML, CSS. Also one of the goals would be to gain new members and maybe partners in expanding the operation.</p>
+  </div>
+  <div class="info-box">
+    <h2>🛠️ Current Work</h2>
+    <p>Building the main website pages, improving the layout, and learning HTML, CSS, and JavaScript while adding basic interactive features.</p>
+  </div>
+  <div class="info-box">
+    <h2>🚀 Long Term</h2>
+    <p>Grow the project into a full platform, improve my development skills, and bring in members or partners to help expand it.</p>
+  </div>
+</div>
+
+  </body>
+</html>
