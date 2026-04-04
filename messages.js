@@ -311,11 +311,3 @@ const messagesData = [
   { user: 'user5', name: 'Aby', text: 'calling it now' },
   { user: 'user7', name: 'Zara', text: 'Metro Forums OGs forever' },
 ];
-
-const chatMessages = document.getElementById('chatMessages');
-messagesData.forEach(function(msg) {
-  const div = document.createElement('div');
-  div.classList.add('message', 'slide-in');
-  div.innerHTML = `<span class="username ${msg.user}">${msg.name}:</span> ${msg.text}`;
-  chatMessages.appendChild(div);
-});
