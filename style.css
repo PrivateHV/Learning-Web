@@ -286,3 +286,72 @@ body {
   line-height: 1.8;
   margin: 0;
 }
+
+.auth-buttons {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.auth-btn {
+  background-color: rgba(50, 50, 50, 0.85);
+  color: white;
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  background-color: rgba(80, 80, 80, 0.9);
+}
+
+.login-box {
+  background-color: rgba(50, 50, 50, 0.85);
+  border: 4px solid;
+  border-radius: 15px;
+  animation: rainbowBorder 3s linear infinite;
+  padding: 40px;
+  width: 300px;
+  margin: 150px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: white;
+  text-align: center;
+}
+
+.login-box input {
+  background-color: rgba(80, 80, 80, 0.9);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.proceed-btn {
+  background-color: rgba(80, 80, 80, 0.9);
+  color: white;
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  animation: rainbowBorder 3s linear infinite;
+}
+
+.proceed-btn:hover {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+.login-error {
+  color: #f06292;
+  font-size: 13px;
+  margin: 0;
+}
