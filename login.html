@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Forum - Login</title>
+  </head>
+  <body>
+    <div class="auth-buttons">
+      <button class="auth-btn" onclick="window.location.href='/'">Back</button>
+    </div>
+
+    <div class="login-box">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <p class="login-error" id="errorMsg"></p>
+      <button class="proceed-btn" onclick="tryLogin()">Proceed</button>
+    </div>
+
+    <script>
+  function tryLogin() {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorMsg = document.getElementById('errorMsg');
+
+    if (username === '' || password === '') {
+      errorMsg.textContent = 'Please fill in both fields.';
+      return;
+    }
+
+    fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        localStorage.setItem('loggedInUser', username);
+        window.location.href = '/';
+      } else {
+        errorMsg.textContent = 'Login failed. Incorrect username or password.';
+      }
+    })
+    .catch(function() {
+      errorMsg.textContent = 'Could not connect to server. Is it running?';
+    });
+  }
+
+  document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') tryLogin();
+  });
+</script>
+  </body>
+</html>
