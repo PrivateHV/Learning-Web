@@ -7,5 +7,5 @@ Any tips on what I can do to optimize the code or fix any bugs (I havent found a
 
 2026-04-04
 Pushed the new update, you are now required to run Node.js for the whole login and registration system to work 
-while connecting to the website via localhost300 everything works perfectly, and I haven't noticed any bugs. added
+while connecting to the website via localhost3000 everything works perfectly, and I haven't noticed any bugs. Added
 some more information and optimized the code so it isn't so spaghetti.
