@@ -7,5 +7,9 @@ Any tips on what I can do to optimize the code or fix any bugs (I havent found a
 
 2026-04-04
 Pushed the new update, you are now required to run Node.js for the whole login and registration system to work 
-while connecting to the website via localhost3000 everything works perfectly, and I haven't noticed any bugs. Added
+while connecting to the website via localhost:3000. Everything works perfectly, and I haven't noticed any bugs. Added
 some more information and optimized the code so it isn't so spaghetti.
+
+2026-04-06
+Added a new part of the website called "Projects", fixed everything up, and made the website more optimized.
+Also fixed some small bugs related to the "Downloads" and "About Me" tabs and their structure.
